@@ -6,7 +6,7 @@ export default function PetCard({ pet }) {
     ? (
       <>
         <div className='left-panel'>
-          <h4 className='pet-info'>{pet.name}</h4>
+          <h3 className='pet-info'>{pet.name}</h3>
           <div className='pet-info'>{`age  |  ${pet.age}`}</div>
           <div className='pet-info'>{`gender  |  ${pet.gender}`}</div>
           <div className='pet-info'>{`breed  |  ${pet.breed}`}</div>

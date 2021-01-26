@@ -65,8 +65,8 @@ const PetfulApiService = {
       res.ok ? res.json() : res.json().then( e => Promise.reject(e))
       );
   },
-  async deleteDog() {
-    return fetch(`${API_ENDPOINT}/pets/dog`, {
+  async deletePet(animalType) {
+    return fetch(`${API_ENDPOINT}/pets/${animalType}`, {
       method: 'DELETE',
       headers: {
         'content-type': 'application/json'
@@ -75,16 +75,6 @@ const PetfulApiService = {
       res.ok ? res.json() : res.json().then( e => Promise.reject(e))
       );
   },
-  async deleteCat() {
-    return fetch(`${API_ENDPOINT}/pets/cat`, {
-      method: 'DELETE',
-      headers: {
-        'content-type': 'application/json'
-      },
-    }).then( res => 
-      res.ok ? res.json() : res.json().then( e => Promise.reject(e))
-      );
-  }
 
 }
 

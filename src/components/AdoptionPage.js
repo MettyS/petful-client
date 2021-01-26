@@ -24,7 +24,7 @@ class AdoptionPage extends Component {
     const { name } = e.target;
     const person = name.value;
 
-    this.props.handleNewAdopter(person)
+    this.props.handleNewAdopter(person, true)
   }
 
   renderEnterLineForm = () => {
@@ -43,28 +43,63 @@ class AdoptionPage extends Component {
       </form>
     )
   }
+  // handleAdoptButtonClick = (e) => {
+  //   e.preventDefault();
+    
+  // }
+
+  renderAdoptDogButton = (shouldRender) => {
+    return shouldRender ? (
+      <button type='button' className='btn' onClick={() => {this.props.handleAdoptionClick('dog')}} >Adopt!</button>
+    )
+    : ''
+  }
+
+  renderAdoptCatButton = (shouldRender) => {
+    return shouldRender ? (
+      <button type='button' className='btn' onClick={() => {this.props.handleAdoptionClick('cat')}} >Adopt!</button>
+    )
+    : ''
+  }
+
+  renderAdoptionCongrats = (animalName) => {
+    return animalName === '' ? '' 
+      : <p>{`Congrats and thank you for adopting ${animalName}!`}</p>
+  }
 
   render() {
     const { dogs, cats } = this.props.pets;
-    const people = this.props.people
+    const { people, clientUser, displayCongrats } = this.props
 
     const currentDogInfo = dogs[0];
     const currentCatInfo = cats[0];
+    const buttonsShouldRender = people[0] === clientUser;
+
+    console.log('buttonsShouldRender: ', buttonsShouldRender);
+    console.log('clientUser: ', clientUser)
 
     const dogCard = this.renderDogCard(currentDogInfo);
     const catCard = this.renderCatCard(currentCatInfo);
     const adoptionQueue = this.renderAdopterQueue(people);
     const inputArea = this.renderEnterLineForm();
 
+    const dogButton = this.renderAdoptDogButton(buttonsShouldRender);
+    const catButton = this.renderAdoptCatButton(buttonsShouldRender);
+    const congratsMessage = this.renderAdoptionCongrats(displayCongrats);
+
 
     return (
       <div className='AdoptionPage'>
-        Adoption page!
+        Queue:
         {adoptionQueue}
         {inputArea}
-
+        {congratsMessage}
+        
         {dogCard}
+        {dogButton}
+
         {catCard}
+        {catButton}
       </div>
     )
   }
