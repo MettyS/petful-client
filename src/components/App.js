@@ -36,12 +36,10 @@ class App extends Component {
 
     PetfulApiService.getPets()
       .then(res => {
-        console.log(res);
         tempState.pets = {...res};
 
         PetfulApiService.getPeople()
           .then(res => {
-            console.log(res);
             tempState.people = res;
 
             this.setState({...tempState})
@@ -56,9 +54,6 @@ class App extends Component {
   }
 
   toggleLoading = () => {
-    console.log('toggle loading running');
-
-    console.log(this.state);
     this.setState({loading: true});
   }
 
@@ -125,7 +120,6 @@ class App extends Component {
 
     PetfulApiService.postPerson(person)
       .then(res => {
-        console.log(res);
         let tempClientUser = isClient ? person : this.state.clientUser
 
         if(isClient && !this.state.interval) {
@@ -145,8 +139,6 @@ class App extends Component {
 
   render = () => {
     const {pets, people, clientUser, displayCongrats} = this.state;
-
-    console.log(this.state);
 
     return (
       <Router>

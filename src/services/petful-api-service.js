@@ -35,7 +35,6 @@ const PetfulApiService = {
   },
 
   async getPets() {
-    console.log(API_ENDPOINT)
     return fetch(`${API_ENDPOINT}/pets`, {
       method: 'GET',
       headers: {

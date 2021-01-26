@@ -75,9 +75,6 @@ class AdoptionPage extends Component {
     const currentCatInfo = cats[0];
     const buttonsShouldRender = people[0] === clientUser;
 
-    console.log('buttonsShouldRender: ', buttonsShouldRender);
-    console.log('clientUser: ', clientUser)
-
     const dogCard = this.renderDogCard(currentDogInfo);
     const catCard = this.renderCatCard(currentCatInfo);
     const adoptionQueue = this.renderAdopterQueue(people);
