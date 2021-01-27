@@ -11,6 +11,10 @@ class LandingPage extends Component {
         <Link to='/adoption'>
           <button type='button' className='btn'>Start Adopting</button>
         </Link>
+        <div className='petful-description'>
+          <p>Petful is a project simulating a pet adoption process. </p>
+          <p>Insert your name in a queue and wait for your turn to adopt a pet.</p>
+        </div>
 
       </div>
     )
