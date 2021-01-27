@@ -1,5 +1,8 @@
 # Petful Client
 
+client | https://petful-client-f3kaigciz.vercel.app/ 
+server | https://petful-metty.herokuapp.com/
+
 This project uses React
 
 Using a queue, allows user to demo an adoption cycle for cats and dogs.
